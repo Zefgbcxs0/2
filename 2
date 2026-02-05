@@ -1,0 +1,42 @@
+class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+    def study(self):
+        print(self.name, "вчиться")
+
+    def info(self):
+        print("Учень:", self.name, "| Клас:", self.grade)
+
+
+class School:
+    def __init__(self, name):
+        self.name = name
+        self.students = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def show_students(self):
+        print("Школа:", self.name)
+        for student in self.students:
+            student.info()
+
+    def start_lesson(self):
+        print("Почався урок!")
+        for student in self.students:
+            student.study()
+
+
+# ---- Симуляція ----
+school = School("Ліцей №1")
+
+s1 = Student("Андрій", 9)
+s2 = Student("Марія", 8)
+
+school.add_student(s1)
+school.add_student(s2)
+
+school.show_students()
+school.start_lesson()
